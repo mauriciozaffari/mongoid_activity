@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mongoid_activity}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mauricio Zaffari"]
@@ -19,11 +19,14 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     "Gemfile",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
      "VERSION",
      "lib/mongoid_activity.rb",
+     "mongoid_activity.gemspec",
+     "spec/models/task.rb",
      "spec/mongoid_activity_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
