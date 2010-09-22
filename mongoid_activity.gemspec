@@ -10,18 +10,17 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mauricio Zaffari"]
   s.date = %q{2010-09-22}
-  s.description = %q{TODO: longer description of your gem}
+  s.description = %q{Simpler than a full state machine :)}
   s.email = %q{mauricio@papodenerd.net}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.md"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "Gemfile",
      "LICENSE",
-     "README.rdoc",
      "Rakefile",
      "VERSION",
      "lib/mongoid_activity.rb",
@@ -35,7 +34,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{Simple gem to include active state to your Mongoid models}
   s.test_files = [
     "spec/models/task.rb",
      "spec/mongoid_activity_spec.rb",
@@ -47,11 +46,14 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<mongoid>, [">= 2.0.0.beta"])
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
     else
+      s.add_dependency(%q<mongoid>, [">= 2.0.0.beta"])
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
     end
   else
+    s.add_dependency(%q<mongoid>, [">= 2.0.0.beta"])
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
   end
 end

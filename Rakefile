@@ -5,11 +5,12 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "mongoid_activity"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Simple gem to include active state to your Mongoid models}
+    gem.description = %Q{Simpler than a full state machine :)}
     gem.email = "mauricio@papodenerd.net"
     gem.homepage = "http://github.com/mauriciozaffari/mongoid_activity"
     gem.authors = ["Mauricio Zaffari"]
+    gem.add_dependency "mongoid", ">= 2.0.0.beta"
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
