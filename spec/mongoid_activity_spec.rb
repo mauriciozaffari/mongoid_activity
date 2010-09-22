@@ -19,17 +19,29 @@ describe Mongoid::Activity do
   end
     
   describe "saved" do
-    it "should be activable" do
+    before(:each) do
       @task.save
+    end
+    
+    it "should be activable" do
       @task.activate!
       @task.active?.should be_true
     end
   
     it "should be deactivable" do
-      @task.save
       @task.activate!
       @task.deactivate!
       @task.inactive?.should be_true
+    end
+    
+    it "should have a active scope" do
+      @task.activate!
+      Task.active.first.should == @task
+    end
+        
+    it "should have a inactive scope" do
+      @task.deactivate!
+      Task.inactive.first.should == @task
     end
   end
 end
