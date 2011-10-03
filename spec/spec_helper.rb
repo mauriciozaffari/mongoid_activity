@@ -1,19 +1,24 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require 'mongoid'
-require 'database_cleaner'
-require 'mongoid_activity'
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
 
-Mongoid.configure do |config|
-  name = "mongoid_activity_test"
-  config.master = Mongo::Connection.new.db(name)
-end
+MODELS = File.join(File.dirname(__FILE__), "models")
 
-Dir["#{File.dirname(__FILE__)}/models/*.rb"].each { |file| require file }
+require "rubygems"
+require "mongoid"
+require "mongoid_activity"
+require "database_cleaner"
+require "simplecov"
+
+SimpleCov.start
+
+Dir["#{MODELS}/*.rb"].each { |f| require f }
+
+Mongoid.config.master = Mongo::Connection.new.db("mongoid_activity_test")
+Mongoid.logger = Logger.new($stdout)
 
 DatabaseCleaner.orm = "mongoid"
 
-Spec::Runner.configure do |config|
+RSpec.configure do |config|
   config.before(:all) do
     DatabaseCleaner.strategy = :truncation
   end
