@@ -5,8 +5,8 @@ module Mongoid::Activity
     field :active, :type => Boolean, :default => true
     index({active: 1})
     
-    scope :inactive,  :where => { :active => false }
-    scope :active,    :where => { :active => true }
+    scope :inactive, where(active: false)
+    scope :active, where(active: true)
 
     def activate!
       new_record? ? self.active = true : update_attributes(:active => true)
