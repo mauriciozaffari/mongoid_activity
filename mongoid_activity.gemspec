@@ -50,7 +50,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<database_cleaner>, [">= 0"])
     else
       s.add_dependency(%q<bson_ext>, [">= 0"])
-      s.add_dependency(%q<mongoid>, ["~> 2.0"])
+      s.add_dependency(%q<mongoid>, ["~> 4.0.0.alpha2"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.2"])
       s.add_dependency(%q<simplecov>, [">= 0.4.0"])
