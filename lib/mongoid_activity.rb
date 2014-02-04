@@ -3,7 +3,7 @@ module Mongoid::Activity
   
   included do
     field :active, :type => Boolean
-    index :active
+    index({ active: 1 })
     
     scope :inactive,  :where => { :active => false }
     scope :active,    :where => { :active => true }
