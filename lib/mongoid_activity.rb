@@ -2,7 +2,7 @@ module Mongoid::Activity
   extend ActiveSupport::Concern
   
   included do
-    field :active, :type => Boolean
+    field :active, type: Boolean, default: true
     index({ active: 1 })
     
     scope :inactive, ->{ where(active: false) }
