@@ -16,10 +16,10 @@ Dir["#{MODELS}/*.rb"].each { |f| require f }
 
 if defined?(::Mongoid::VERSION) && ::Mongoid::VERSION > '3'
   Mongoid.configure do |config|
-    config.connect_to "mongoid_auto_increment_test"
+    config.connect_to "mongoid_activity_test"
   end
 else
-  Mongoid.config.master = Mongo::Connection.new.db("mongoid_auto_increment_test")
+  Mongoid.config.master = Mongo::Connection.new.db("mongoid_activity_test")
 end
 Mongoid.logger = Logger.new($stdout)
 
