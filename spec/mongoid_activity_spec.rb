@@ -8,13 +8,13 @@ describe Mongoid::Activity do
   describe "not saved" do
     it "should be activable" do
       @task.activate!
-      @task.active?.should be_true
+      expect(@task.active?).to be_truthy
     end
   
     it "should be deactivable" do
       @task.activate!
       @task.deactivate!
-      @task.inactive?.should be_true
+      expect(@task.inactive?).to be_truthy
     end
   end
     
@@ -25,23 +25,23 @@ describe Mongoid::Activity do
     
     it "should be activable" do
       @task.activate!
-      @task.active?.should be_true
+      expect(@task.active?).to be_truthy
     end
   
     it "should be deactivable" do
       @task.activate!
       @task.deactivate!
-      @task.inactive?.should be_true
+      expect(@task.inactive?).to be_truthy
     end
     
     it "should have a active scope" do
       @task.activate!
-      Task.active.first.should == @task
+      expect(Task.active.first).to eq(@task)
     end
         
     it "should have a inactive scope" do
       @task.deactivate!
-      Task.inactive.first.should == @task
+      expect(Task.inactive.first).to eq(@task)
     end
   end
 end
